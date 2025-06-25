@@ -1,6 +1,9 @@
 class LoginPage {
-  getSignUpLoginLink() {
-    cy.get(".shop-menu > .nav > :nth-child(4) > a").click();
+  clickSignUpLoginLink() {
+    cy.get(".shop-menu a[href='/login']").click();
+  }
+
+  verifySignUpFormVisible() {
     cy.get(".signup-form > h2").should("have.text", "New User Signup!");
   }
 }
