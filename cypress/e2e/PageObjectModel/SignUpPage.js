@@ -14,6 +14,13 @@ class SignUpPage {
       "Enter Account Information"
     );
   }
+
+  verifyExistEmailAddressVisible() {
+    cy.get(".signup-form > form > p").should(
+      "have.text",
+      "Email Address already exist!"
+    );
+  }
 }
 
 export default SignUpPage;
