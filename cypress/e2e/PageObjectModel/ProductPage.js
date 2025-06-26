@@ -15,35 +15,56 @@ class ProductPage {
       .and("have.text", "Blue Top");
   }
 
+  hoverAddProductLink(productNumber) {
+    cy.get(".product-image-wrapper")
+      .eq(productNumber - 1)
+      .trigger("mouseover")
+      .within(() => {
+        cy.get(".add-to-cart").first().click();
+      });
+  }
+
+  clickContinueButton() {
+    cy.get(".modal-footer > .btn").click();
+  }
+
+  clickFirstProductLink() {
+    cy.get(
+      ":nth-child(3) > .product-image-wrapper > .single-products > .productinfo > img"
+    ).click();
+  }
+
   clickProductDetailLink() {
     cy.get(
       ":nth-child(3) > .product-image-wrapper > .choose > .nav > li > a"
     ).click();
   }
 
-  verifyProductDetailVisible() {
-    cy.get(".product-information").should("be.visible");
-    cy.get(".product-information > h2").should("have.text", "Blue Top");
-    cy.get(".product-information > :nth-child(3)").should(
-      "have.text",
-      "Category: Women > Tops"
-    );
-    cy.get(":nth-child(5) > span").should("include.text", "Rs.");
-    cy.get(".product-information > :nth-child(6)").should(
-      "have.text",
-      "Availability: In Stock"
-    );
-    cy.get(".product-information > :nth-child(7)").should(
-      "have.text",
-      "Condition: New"
-    );
-    cy.get(".product-information > :nth-child(8)").should(
-      "include.text",
-      "Brand"
-    );
+  clickViewCartButton() {
+    cy.get("u").click();
   }
 
-  submitProductSeaarch(product) {
+  verifyCartAddedVisible(number, name, category) {
+    cy.get(`#product-${number} > .cart_description > h4 > a`)
+      .should("be.visible")
+      .and("contain.text", name);
+    cy.get(`#product-${number} > .cart_description > p`)
+      .should("be.visible")
+      .and("contain.text", category);
+  }
+
+  verifyProductDetailVisible() {
+    const productInfo = cy.get(".product-information");
+    productInfo.should("be.visible");
+    productInfo.find("h2").should("contain", "Blue Top");
+    productInfo.find(":nth-child(3)").should("contain", "Category");
+    productInfo.find(":nth-child(5) > span").should("include.text", "Rs.");
+    productInfo.find(":nth-child(6)").should("contain", "Availability");
+    productInfo.find(":nth-child(7)").should("contain", "Condition: New");
+    productInfo.find(":nth-child(8)").should("contain", "Brand");
+  }
+
+  submitProductSearch(product) {
     cy.get("#search_product").type(product);
     cy.get("#submit_search").click();
   }

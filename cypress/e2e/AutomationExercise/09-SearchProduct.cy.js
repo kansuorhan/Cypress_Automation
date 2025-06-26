@@ -13,7 +13,8 @@ describe("Case - 9 Search Product", () => {
     productPage.verifyProductVisible();
 
     const product = "Green Side Placket";
-    productPage.submitProductSeaarch(product);
+
+    productPage.submitProductSearch(product);
     productPage.verifySearchListVisible();
     productPage.verifyProductSearchItem(product);
   });
