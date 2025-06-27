@@ -16,11 +16,29 @@ describe("Case - 12 Add Product", () => {
     productPage.clickViewCartButton();
 
     const items = [
-      { number: 1, name: "Blue Top", category: "Women > Tops" },
-      { number: 2, name: "Men Tshirt", category: "Men > Tshirts" },
+      {
+        number: 1,
+        name: "Blue Top",
+        category: "Women > Tops",
+        quantity: 1,
+        price: "Rs. 500",
+      },
+      {
+        number: 2,
+        name: "Men Tshirt",
+        category: "Men > Tshirts",
+        quantity: 1,
+        price: "Rs. 400",
+      },
     ];
     items.forEach((item) => {
-      productPage.verifyCartAddedVisible(item.number, item.name, item.category);
+      productPage.verifyMultipleCartAddedVisible(
+        item.number,
+        item.name,
+        item.category,
+        item.quantity,
+        item.price
+      );
     });
   });
 });

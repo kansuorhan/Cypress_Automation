@@ -7,7 +7,7 @@ describe("Case - 10 Verify Subscription", () => {
     homePage.visitHomePage();
     homePage.verifyHomePageLoaded();
     homePage.verifySubscriptionVisible();
-    homePage.fillEmailForm();
+    homePage.fillEmailForm("Alex10@gmail.com");
     homePage.verifySubcribedVisible();
   });
 });

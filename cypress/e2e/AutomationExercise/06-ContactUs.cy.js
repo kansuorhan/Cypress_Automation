@@ -12,14 +12,10 @@ describe("Case - 6 Contact", () => {
     contactPage.clickContactUsLink();
     contactPage.verifyContactFormVisible();
 
-    const user = {
-      name: "Alex",
-      email: "alex10@gmail.com",
-      subject: "Hello",
-      message: "Ich mag neue Job",
-    };
+    cy.fixture("user").then((user) => {
+      contactPage.fillContactForm(user);
+    });
 
-    contactPage.fillContactForm(user);
     contactPage.uploadFileButton();
     contactPage.clickSubmitForm();
     contactPage.verifyContactSubmitVisible();

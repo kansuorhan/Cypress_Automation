@@ -24,6 +24,16 @@ class ProductPage {
       });
   }
 
+  clickViewProductLink(productNumber) {
+    cy.get(".product-image-wrapper")
+      .eq(productNumber - 1)
+      .trigger("mouseover");
+
+    cy.get(
+      ":nth-child(26) > .product-image-wrapper > .choose > .nav > li > a"
+    ).click();
+  }
+
   clickContinueButton() {
     cy.get(".modal-footer > .btn").click();
   }
@@ -44,13 +54,32 @@ class ProductPage {
     cy.get("u").click();
   }
 
-  verifyCartAddedVisible(number, name, category) {
-    cy.get(`#product-${number} > .cart_description > h4 > a`)
-      .should("be.visible")
-      .and("contain.text", name);
-    cy.get(`#product-${number} > .cart_description > p`)
-      .should("be.visible")
-      .and("contain.text", category);
+  submitQuantity(quantity) {
+    cy.get("#quantity").clear().type(quantity.number);
+  }
+
+  clickAddtoCartButton() {
+    cy.get(":nth-child(5) > .btn").click();
+  }
+
+  verifyMultipleCartAddedVisible(number, name, category, quantity, price) {
+    cy.get(`#product-${number}`).within(() => {
+      cy.get(".cart_description h4 a")
+        .should("be.visible")
+        .and("contain.text", name);
+
+      cy.get(".cart_description p")
+        .should("be.visible")
+        .and("contain.text", category);
+
+      cy.get(".cart_quantity .disabled")
+        .should("be.visible")
+        .and("contain.text", quantity);
+
+      cy.get(".cart_total .cart_total_price")
+        .should("be.visible")
+        .and("contain.text", price);
+    });
   }
 
   verifyProductDetailVisible() {
@@ -75,6 +104,30 @@ class ProductPage {
 
   verifyProductSearchItem(product) {
     cy.get(".productinfo > p").should("include.text", product);
+  }
+
+  verifyProductCartItem(product) {
+    cy.get(".product-information > h2").should("include.text", product);
+  }
+
+  verifyProductQuantityBox(item) {
+    cy.get(".disabled").should("include.text", item.number);
+  }
+
+  clickCartLink() {
+    cy.get(".shop-menu > .nav > :nth-child(3)").click();
+  }
+
+  verifyCheckOutVisible() {
+    cy.get(".breadcrumb").should("include.text", "Shopping Cart");
+  }
+
+  clickProceedCheckOutButton() {
+    cy.get(".col-sm-6 > .btn").click();
+  }
+
+  clickRegisterLoginButton() {
+    cy.get(".modal-body > :nth-child(2) > a > u").click();
   }
 }
 

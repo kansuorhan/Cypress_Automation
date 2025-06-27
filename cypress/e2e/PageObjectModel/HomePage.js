@@ -13,8 +13,8 @@ class HomePage {
       .should("have.text", "Subscription");
   }
 
-  fillEmailForm() {
-    cy.get("#susbscribe_email").type("Alex10@gmail.com");
+  fillEmailForm(email) {
+    cy.get("#susbscribe_email").type(email);
     cy.get("#subscribe").click();
   }
 
