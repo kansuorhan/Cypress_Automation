@@ -28,6 +28,32 @@ class HomePage {
   clickCartLink() {
     cy.get(".shop-menu > .nav > :nth-child(3) > a").click();
   }
+
+  verifyCategoryProductsVisible() {
+    cy.get(".left-sidebar")
+      .should("be.visible")
+      .and("contain.text", "Women")
+      .and("contain.text", "Men");
+  }
+
+  clickCategoryPlus(number) {
+    cy.get(`:nth-child(${number}) > .panel-heading > .panel-title > a`).click();
+  }
+
+  clickWomenCategoryProducts(number) {
+    cy.get(`#Women > .panel-body > ul > :nth-child(${number}) > a`).click();
+  }
+
+  verifyTitles(title) {
+    cy.get(".title").should("be.visible").and("contains.text", title);
+  }
+
+  verifyPanelBody(category, name1, name2) {
+    cy.get(`#${category} > .panel-body`)
+      .should("be.visible")
+      .and("contain.text", name1)
+      .and("contain.text", name2);
+  }
 }
 
 export default HomePage;

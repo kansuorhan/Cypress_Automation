@@ -129,6 +129,16 @@ class ProductPage {
   clickRegisterLoginButton() {
     cy.get(".modal-body > :nth-child(2) > a > u").click();
   }
+
+  clickXButton() {
+    cy.get(".cart_quantity_delete > .fa").click();
+  }
+
+  verifyProductRemovedVisible() {
+    cy.get("#empty_cart")
+      .should("be.visible")
+      .and("contain.text", "Cart is empty!");
+  }
 }
 
 export default ProductPage;

@@ -8,7 +8,7 @@ import SignUpPage from "../PageObjectModel/SignUpPage";
 
 import { faker } from "@faker-js/faker";
 
-describe("Case - 15 Place Order Register", () => {
+describe("Case - 16 Place Order Login", () => {
   it("Place Order : Register before Checkout", () => {
     const homePage = new HomePage();
     const loginPage = new LoginPage();
@@ -23,31 +23,27 @@ describe("Case - 15 Place Order Register", () => {
 
     loginPage.clickSignUpLoginLink();
 
+    const user = {
+      email: "alex50@gmail.com",
+      password: "Alex50",
+      name: "Alex50",
+      company: "Adidas",
+      address: "Strasse",
+      city: "Koln",
+      country: "United States",
+      mobile: "1111111111",
+    };
+
     const fake = {
-      password: faker.internet.password(),
-      day: "5",
       month: faker.date.month(),
       year: "1972",
-      firstName: faker.person.firstName(),
-      lastName: faker.person.lastName(),
-      email: faker.internet.email(),
-      company: faker.company.name(),
-      address: faker.location.buildingNumber(),
-      country: "United States",
-      state: faker.location.state(),
-      city: faker.location.city(),
-      zipcode: faker.location.zipCode(),
-      mobile: faker.phone.number(),
-      description: faker.commerce.department,
       card: faker.finance.creditCardNumber(),
       cvc: faker.finance.creditCardCVV(),
     };
 
-    signUpPage.fillSignUpForm(fake.firstName, fake.email);
-    signUpPage.submitSignUpForm();
-    signUpPage.verifyAccountInfoPageVisible();
-
-    infoPage.verifyLoggedIn(fake.firstName);
+    loginPage.fillkLoginForm(user.email, user.password);
+    loginPage.submitLoginForm();
+    loginPage.verifyLoggedIn(user.name);
 
     productPage.hoverAddProductLink(6);
     productPage.clickContinueButton();
@@ -56,19 +52,19 @@ describe("Case - 15 Place Order Register", () => {
     productPage.clickProceedCheckOutButton();
 
     checkOutPage.verifyAddressDetails(
-      fake.firstName,
-      fake.company,
-      fake.address,
-      fake.city,
-      fake.country,
-      fake.mobile
+      user.name,
+      user.company,
+      user.address,
+      user.city,
+      user.country,
+      user.mobile
     );
     checkOutPage.submitDescriptiionBox("faker harika");
 
     checkOutPage.submitDescriptiionBox("faker harika");
     checkOutPage.clickPlaceOrderButton();
     checkOutPage.submitPayment(
-      fake.firstName,
+      user.name,
       fake.card,
       fake.cvc,
       fake.month,
