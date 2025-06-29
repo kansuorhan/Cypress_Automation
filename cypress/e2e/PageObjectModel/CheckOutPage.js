@@ -40,6 +40,10 @@ class CheckOutPage {
       "Your order has been placed successfully!"
     );
   }
+
+  verifyCheckOutItemVisible(name) {
+    cy.get("h4 > a").should("be.visible").and("contain.text", name);
+  }
 }
 
 export default CheckOutPage;

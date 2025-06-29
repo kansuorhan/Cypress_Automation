@@ -16,6 +16,6 @@ describe("Case - 9 Search Product", () => {
 
     productPage.submitProductSearch(product);
     productPage.verifySearchListVisible();
-    productPage.verifyProductSearchItem(product);
+    productPage.verifyProductSearchItem();
   });
 });

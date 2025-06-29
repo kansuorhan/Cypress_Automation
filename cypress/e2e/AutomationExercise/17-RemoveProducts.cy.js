@@ -9,7 +9,7 @@ describe("Case - 17 Remove Products from Cart", () => {
     homePage.visitHomePage();
     homePage.verifyHomePageLoaded();
 
-    productPage.hoverAddProductLink(1);
+    productPage.hoverAddProductLink(1); // Product Number
     productPage.clickViewCartButton();
     productPage.verifyCheckOutVisible();
     productPage.clickXButton();

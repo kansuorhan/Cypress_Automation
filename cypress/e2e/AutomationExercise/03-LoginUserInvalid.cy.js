@@ -11,7 +11,7 @@ describe("Case 3 - Login User Invalid", () => {
 
     loginPage.clickSignUpLoginLink();
     loginPage.verifySignUpFormVisible();
-    loginPage.fillkLoginForm("alex10@gmail.com", "Alex100");
+    loginPage.fillLoginForm("alex10@gmail.com", "Alex100");
     loginPage.submitLoginForm();
     loginPage.verifyLoginInvalidVisible();
   });

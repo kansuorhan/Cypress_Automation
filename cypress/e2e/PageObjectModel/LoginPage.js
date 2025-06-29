@@ -7,7 +7,7 @@ class LoginPage {
     cy.get(".signup-form > h2").should("have.text", "New User Signup!");
   }
 
-  fillkLoginForm(name, password) {
+  fillLoginForm(name, password) {
     cy.get('[data-qa="login-email"]').type(name);
     cy.get('[data-qa="login-password"]').type(password);
   }

@@ -54,6 +54,38 @@ class HomePage {
       .and("contain.text", name1)
       .and("contain.text", name2);
   }
+
+  verifyBrandVisible(name1, name2) {
+    cy.get(".brands_products > h2").should("be.visible");
+
+    cy.get(".brands-name")
+      .should("be.visible")
+      .and("contain.text", name1)
+      .and("contain.text", name2);
+  }
+
+  clickBrandNameProducts(number) {
+    cy.get(`.brands-name > .nav > :nth-child(${number}) > a`).click();
+  }
+
+  verifyBrandPageName(number) {
+    cy.get(`.brands-name > .nav > :nth-child(${number}) > a`).then(($brand) => {
+      const fullText = $brand
+        .text()
+        .replace(/\u00a0/g, "")
+        .trim();
+      const brandName = fullText.replace(/^\(\d+\)/, "").trim();
+
+      $brand.click();
+
+      cy.get(".title")
+        .invoke("text")
+        .then((titleText) => {
+          const cleanedTitle = titleText.replace(/\u00a0/g, "").trim();
+          expect(cleanedTitle).to.eq(`Brand - ${brandName} Products`);
+        });
+    });
+  }
 }
 
 export default HomePage;

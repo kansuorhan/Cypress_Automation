@@ -1,6 +1,18 @@
 {
-  "name": "Alex",
-  "email": "alex10@gmail.com",
-  "subject": "Hello",
-  "message": "Ich mag neue Job"
+  "users": [
+    {
+      "name": "Alex",
+      "email": "alex10@gmail.com",
+      "password": "alex10",
+      "subject": "Hello",
+      "message": "Ich mag neue Job"
+    },
+    {
+      "name": "Alex20",
+      "email": "alex20@gmail.com",
+      "password": "Alex20",
+      "subject": "Hello",
+      "message": "Ich mag neue Job"
+    }
+  ]
 }

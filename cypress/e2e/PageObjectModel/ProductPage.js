@@ -102,8 +102,16 @@ class ProductPage {
     cy.get(".title").should("have.text", "Searched Products");
   }
 
-  verifyProductSearchItem(product) {
-    cy.get(".productinfo > p").should("include.text", product);
+  verifyProductSearchItem() {
+    cy.get("#search_product")
+      .invoke("val")
+      .then((searchValue) => {
+        const brandName = searchValue.replace(/\u00a0/g, "").trim();
+
+        cy.get(".productinfo > p").each(($el) => {
+          cy.wrap($el).should("contain.text", brandName);
+        });
+      });
   }
 
   verifyProductCartItem(product) {
@@ -138,6 +146,28 @@ class ProductPage {
     cy.get("#empty_cart")
       .should("be.visible")
       .and("contain.text", "Cart is empty!");
+  }
+
+  verifyWriteReviewVisible() {
+    cy.get(".active > a")
+      .should("be.visible")
+      .and("have.text", "Write Your Review");
+  }
+
+  submitReviewForm(name, email, message) {
+    cy.get("#name").type(name);
+    cy.get("#email").type(email);
+    cy.get("#review").type(message);
+  }
+
+  clickSbumitReviewButton() {
+    cy.get("#button-review").click();
+  }
+
+  verifySuccessMessage() {
+    cy.get(".alert-success > span")
+      .should("be.visible")
+      .and("have.text", "Thank you for your review.");
   }
 }
 

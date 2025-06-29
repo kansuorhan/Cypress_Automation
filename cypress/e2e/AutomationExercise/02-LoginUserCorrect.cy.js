@@ -4,7 +4,12 @@ import InformationPage from "../PageObjectModel/InformationPage";
 import LoginPage from "../PageObjectModel/LoginPage";
 
 describe("Case 2 - Login User", () => {
-  it("Login User with correct email and password", () => {
+  beforeEach(() => {
+    cy.fixture("user").as("userData");
+  });
+
+  it("Login User with correct email and password", function () {
+    // Not arrow function !!!
     const homePage = new HomePage();
     const loginPage = new LoginPage();
     const infoPage = new InformationPage();
@@ -13,12 +18,14 @@ describe("Case 2 - Login User", () => {
     homePage.visitHomePage();
     homePage.verifyHomePageLoaded();
 
+    const user = this.userData.users[0];
+
     loginPage.clickSignUpLoginLink();
     loginPage.verifySignUpFormVisible();
-    loginPage.fillkLoginForm("alex10@gmail.com", "Alex10");
+    loginPage.fillLoginForm(user.email, user.password);
     loginPage.submitLoginForm();
 
-    infoPage.verifyLoggedIn("Alex10");
+    infoPage.verifyLoggedIn(this.userData.name);
 
     deletePage.clickDeleteAccountLink();
     deletePage.verifyAccountDeleted();
