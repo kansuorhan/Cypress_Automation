@@ -1,4 +1,4 @@
-import HomePage from "../PageObjectModel/HomePage";
+import HomePage from "../../PageObjectModel/HomePage";
 
 describe("Case - 18 View Category Products", () => {
   it("Category Products", () => {

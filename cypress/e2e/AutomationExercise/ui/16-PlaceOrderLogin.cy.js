@@ -1,10 +1,10 @@
-import CheckOutPage from "../PageObjectModel/CheckOutPage";
-import DeletePage from "../PageObjectModel/DeletePage";
-import HomePage from "../PageObjectModel/HomePage";
-import InformationPage from "../PageObjectModel/InformationPage";
-import LoginPage from "../PageObjectModel/LoginPage";
-import ProductPage from "../PageObjectModel/ProductPage";
-import SignUpPage from "../PageObjectModel/SignUpPage";
+import CheckOutPage from "../../PageObjectModel/CheckOutPage";
+import DeletePage from "../../PageObjectModel/DeletePage";
+import HomePage from "../../PageObjectModel/HomePage";
+import InformationPage from "../../PageObjectModel/InformationPage";
+import LoginPage from "../../PageObjectModel/LoginPage";
+import ProductPage from "../../PageObjectModel/ProductPage";
+import SignUpPage from "../../PageObjectModel/SignUpPage";
 
 import { faker } from "@faker-js/faker";
 

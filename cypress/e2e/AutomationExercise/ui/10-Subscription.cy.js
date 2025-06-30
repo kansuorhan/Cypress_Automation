@@ -1,4 +1,4 @@
-import HomePage from "../PageObjectModel/HomePage";
+import HomePage from "../../PageObjectModel/HomePage";
 
 describe("Case - 10 Verify Subscription", () => {
   it("Verify Subscription Home Page", () => {

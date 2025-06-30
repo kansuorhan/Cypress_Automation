@@ -1,5 +1,5 @@
-import HomePage from "../PageObjectModel/HomePage";
-import ProductPage from "../PageObjectModel/ProductPage";
+import HomePage from "../../PageObjectModel/HomePage";
+import ProductPage from "../../PageObjectModel/ProductPage";
 
 describe("Product Verify", () => {
   it("Verify All Products - Product Detail Page", () => {

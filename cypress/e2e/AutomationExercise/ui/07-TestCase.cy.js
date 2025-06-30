@@ -1,5 +1,5 @@
-import HomePage from "../PageObjectModel/HomePage";
-import TestCasePage from "../PageObjectModel/TestCasePage";
+import HomePage from "../../PageObjectModel/HomePage";
+import TestCasePage from "../../PageObjectModel/TestCasePage";
 
 describe("Case - 7 Test Case", () => {
   it("Verify Test Case Page", () => {

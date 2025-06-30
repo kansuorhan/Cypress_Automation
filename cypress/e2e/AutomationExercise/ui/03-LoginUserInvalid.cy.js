@@ -1,5 +1,5 @@
-import HomePage from "../PageObjectModel/HomePage";
-import LoginPage from "../PageObjectModel/LoginPage";
+import HomePage from "../../PageObjectModel/HomePage";
+import LoginPage from "../../PageObjectModel/LoginPage";
 
 describe("Case 3 - Login User Invalid", () => {
   it("Login User with incorrect email and password", () => {

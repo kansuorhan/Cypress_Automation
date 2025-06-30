@@ -1,7 +1,7 @@
-import CheckOutPage from "../PageObjectModel/CheckOutPage";
-import HomePage from "../PageObjectModel/HomePage";
-import LoginPage from "../PageObjectModel/LoginPage";
-import ProductPage from "../PageObjectModel/ProductPage";
+import CheckOutPage from "../../PageObjectModel/CheckOutPage";
+import HomePage from "../../PageObjectModel/HomePage";
+import LoginPage from "../../PageObjectModel/LoginPage";
+import ProductPage from "../../PageObjectModel/ProductPage";
 
 describe("Case - 20 Search Products", () => {
   beforeEach(() => {

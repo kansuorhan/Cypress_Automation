@@ -1,8 +1,8 @@
-import DeletePage from "../PageObjectModel/DeletePage";
-import HomePage from "../PageObjectModel/HomePage";
-import InformationPage from "../PageObjectModel/InformationPage";
-import LoginPage from "../PageObjectModel/LoginPage";
-import SignUpPage from "../PageObjectModel/SignUpPage";
+import DeletePage from "../../PageObjectModel/DeletePage";
+import HomePage from "../../PageObjectModel/HomePage";
+import InformationPage from "../../PageObjectModel/InformationPage";
+import LoginPage from "../../PageObjectModel/LoginPage";
+import SignUpPage from "../../PageObjectModel/SignUpPage";
 
 describe("Case 1 - Register User", () => {
   it("Register and delete user successfully", () => {

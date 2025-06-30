@@ -14,6 +14,21 @@ class CheckOutPage {
     });
   }
 
+  verifyBillingDetails(firstName, company, address, city, country, mobile) {
+    cy.get("#address_invoice").within(() => {
+      cy.get(".address_firstname")
+        .should("be.visible")
+        .and("contain.text", firstName);
+      cy.get(":nth-child(3)").should("be.visible").and("contain.text", company);
+      cy.get(":nth-child(4)").should("be.visible").and("contain.text", address);
+      cy.get(".address_city").should("be.visible").and("contain.text", city);
+      cy.get(".address_country_name")
+        .should("be.visible")
+        .and("contain.text", country);
+      cy.get(".address_phone").should("be.visible").and("contain.text", mobile);
+    });
+  }
+
   submitDescriptiionBox(description) {
     cy.get(".form-control").type(description);
   }
@@ -43,6 +58,14 @@ class CheckOutPage {
 
   verifyCheckOutItemVisible(name) {
     cy.get("h4 > a").should("be.visible").and("contain.text", name);
+  }
+
+  clickDownloadOrderButton() {
+    cy.get(".col-sm-9 > .btn-default").click();
+  }
+
+  clickOrderPlacedContinueButton() {
+    cy.get('[data-qa="continue-button"]').click();
   }
 }
 

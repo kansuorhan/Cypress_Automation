@@ -1,18 +1,18 @@
-import CheckOutPage from "../PageObjectModel/CheckOutPage";
-import DeletePage from "../PageObjectModel/DeletePage";
-import HomePage from "../PageObjectModel/HomePage";
-import InformationPage from "../PageObjectModel/InformationPage";
-import LoginPage from "../PageObjectModel/LoginPage";
-import ProductPage from "../PageObjectModel/ProductPage";
-import SignUpPage from "../PageObjectModel/SignUpPage";
+import CheckOutPage from "../../PageObjectModel/CheckOutPage";
+import DeletePage from "../../PageObjectModel/DeletePage";
+import HomePage from "../../PageObjectModel/HomePage";
+import InformationPage from "../../PageObjectModel/InformationPage";
+import LoginPage from "../../PageObjectModel/LoginPage";
+import ProductPage from "../../PageObjectModel/ProductPage";
+import SignUpPage from "../../PageObjectModel/SignUpPage";
 
 import { faker } from "@faker-js/faker";
 
-describe("Case - 15 Place Order Register", () => {
-  it("Place Order : Register before Checkout", () => {
+describe("Case - 23 Verify Address Details in Checkout Page", () => {
+  it("Verify Address Details", () => {
     const homePage = new HomePage();
-    const loginPage = new LoginPage();
     const signUpPage = new SignUpPage();
+    const loginPage = new LoginPage();
     const infoPage = new InformationPage();
     const productPage = new ProductPage();
     const checkOutPage = new CheckOutPage();
@@ -45,14 +45,16 @@ describe("Case - 15 Place Order Register", () => {
 
     signUpPage.fillSignUpForm(fake.firstName, fake.email);
     signUpPage.submitSignUpForm();
-    signUpPage.verifyAccountInfoPageVisible();
 
+    infoPage.fillAccountInformation(fake);
+    infoPage.submitAccount();
+    infoPage.verifyAccountCreated();
+    infoPage.clickContinueButton();
     infoPage.verifyLoggedIn(fake.firstName);
 
     productPage.hoverAddProductLink(6);
     productPage.clickContinueButton();
     productPage.clickCartLink();
-    productPage.verifyCheckOutVisible();
     productPage.clickProceedCheckOutButton();
 
     checkOutPage.verifyAddressDetails(
@@ -63,19 +65,15 @@ describe("Case - 15 Place Order Register", () => {
       fake.country,
       fake.mobile
     );
-    checkOutPage.submitDescriptiionBox("faker harika");
 
-    checkOutPage.submitDescriptiionBox("faker harika");
-    checkOutPage.clickPlaceOrderButton();
-    checkOutPage.submitPayment(
+    checkOutPage.verifyBillingDetails(
       fake.firstName,
-      fake.card,
-      fake.cvc,
-      fake.month,
-      fake.year
+      fake.company,
+      fake.address,
+      fake.city,
+      fake.country,
+      fake.mobile
     );
-    checkOutPage.clickPayConfirmOrder();
-    // checkOutPage.verifyPlacedMessage();
 
     deletePage.clickDeleteAccountLink();
     deletePage.verifyAccountDeleted();

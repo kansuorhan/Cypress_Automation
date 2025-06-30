@@ -1,5 +1,5 @@
-import HomePage from "../PageObjectModel/HomePage";
-import LoginPage from "../PageObjectModel/LoginPage";
+import HomePage from "../../PageObjectModel/HomePage";
+import LoginPage from "../../PageObjectModel/LoginPage";
 
 describe("Case - 4 Logout User", () => {
   beforeEach(() => {

@@ -1,5 +1,5 @@
-import HomePage from "../PageObjectModel/HomePage";
-import ProductPage from "../PageObjectModel/ProductPage";
+import HomePage from "../../PageObjectModel/HomePage";
+import ProductPage from "../../PageObjectModel/ProductPage";
 
 describe("Case - 21 Add Review on Product", () => {
   beforeEach(() => {

@@ -1,4 +1,4 @@
-import HomePage from "../PageObjectModel/HomePage";
+import HomePage from "../../PageObjectModel/HomePage";
 
 describe("11 - Subcription Cart", () => {
   it("Verify Subcription Cart Page", () => {

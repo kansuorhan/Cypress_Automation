@@ -86,6 +86,33 @@ class HomePage {
         });
     });
   }
+
+  clickScrollViewButtom() {
+    cy.get(".single-widget > h2").scrollIntoView({ duration: 2000 });
+  }
+
+  verifyRecommendedItemsVisible() {
+    cy.get(".recommended_items > .title")
+      .should("be.visible")
+      .and("have.text", "recommended items");
+  }
+
+  clickScrollBarUp() {
+    cy.get("#scrollUp").click();
+  }
+
+  clickScrollUp() {
+    cy.scrollTo("top", { duration: 4000 });
+  }
+
+  verifyFullFledgedPracticeVisible() {
+    cy.get(".active > :nth-child(1) > h2")
+      .should("be.visible")
+      .and(
+        "contain.text",
+        "Full-Fledged practice website for Automation Engineers"
+      );
+  }
 }
 
 export default HomePage;

@@ -1,6 +1,6 @@
-import HomePage from "../PageObjectModel/HomePage";
-import LoginPage from "../PageObjectModel/LoginPage";
-import SignUpPage from "../PageObjectModel/SignUpPage";
+import HomePage from "../../PageObjectModel/HomePage";
+import LoginPage from "../../PageObjectModel/LoginPage";
+import SignUpPage from "../../PageObjectModel/SignUpPage";
 
 describe("Case - 5 Existing Email", () => {
   it("Register User with existing email", () => {

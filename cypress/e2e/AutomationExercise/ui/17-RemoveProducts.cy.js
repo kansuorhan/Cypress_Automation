@@ -1,5 +1,5 @@
-import HomePage from "../PageObjectModel/HomePage";
-import ProductPage from "../PageObjectModel/ProductPage";
+import HomePage from "../../PageObjectModel/HomePage";
+import ProductPage from "../../PageObjectModel/ProductPage";
 
 describe("Case - 17 Remove Products from Cart", () => {
   it("Remove Products from Cart", () => {

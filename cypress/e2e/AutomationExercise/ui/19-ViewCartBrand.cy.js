@@ -1,4 +1,4 @@
-import HomePage from "../PageObjectModel/HomePage";
+import HomePage from "../../PageObjectModel/HomePage";
 
 describe("Casae - 19 View & Cart Brand Products", () => {
   it("View & Cart Brand Products", () => {

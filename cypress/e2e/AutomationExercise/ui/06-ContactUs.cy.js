@@ -1,5 +1,5 @@
-import ContactUs from "../PageObjectModel/ContactUsPage";
-import HomePage from "../PageObjectModel/HomePage";
+import ContactUs from "../../PageObjectModel/ContactUsPage";
+import HomePage from "../../PageObjectModel/HomePage";
 
 describe("Case - 6 Contact", () => {
   it("Contact Us Form", () => {

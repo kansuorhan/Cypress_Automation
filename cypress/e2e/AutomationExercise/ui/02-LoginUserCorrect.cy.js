@@ -1,7 +1,7 @@
-import DeletePage from "../PageObjectModel/DeletePage";
-import HomePage from "../PageObjectModel/HomePage";
-import InformationPage from "../PageObjectModel/InformationPage";
-import LoginPage from "../PageObjectModel/LoginPage";
+import DeletePage from "../../PageObjectModel/DeletePage";
+import HomePage from "../../PageObjectModel/HomePage";
+import InformationPage from "../../PageObjectModel/InformationPage";
+import LoginPage from "../../PageObjectModel/LoginPage";
 
 describe("Case 2 - Login User", () => {
   beforeEach(() => {
