@@ -1,14 +1,10 @@
 import Post from "../../PageObjectApi/Post";
 
-const post = new Post();
+const postApi = new Post();
 
-describe("Negative Test - Method Not Allowed", () => {
-    it("should return 405 for POST request to productsList", () => {
-        cy.request({
-            method: "POST",
-            url: "https://automationexercise.com/api/productsList",
-            failOnStatusCode: false,
-        }).then((res) => {
+describe("02 - POST / Negative Test - Method Not Allowed", () => {
+    it("Should Return 405 for POST Request to Products List", () => {
+        postApi.postAllProductsList().then((res) => {
             expect(res.status).to.eq(200);
 
             const body = JSON.parse(res.body);
