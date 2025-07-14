@@ -1,6 +1,8 @@
 # 🚀 Cypress Automation Project – Automation Exercise
 
-This is a modern end-to-end test automation framework built with [Cypress](https://www.cypress.io/) for testing the [Automation Exercise](https://automationexercise.com/) demo web application. The framework includes UI test coverage using custom commands, fixtures, and well-organized test structure.
+This is a modern end-to-end test automation framework built with [Cypress](https://www.cypress.io/) for 
+testing the [Automation Exercise](https://automationexercise.com/) demo web application. The framework 
+includes UI test coverage using custom commands, fixtures, and well-organized test structure.
 
 ## 📁 Project Structure
 
